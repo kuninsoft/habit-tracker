@@ -1,20 +1,70 @@
+:host {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+}
+
 header {
-    background-color: orange;
-    color: white;
     text-align: center;
 
     padding-top: 5px;
     padding-bottom: 5px;
 
+    margin-bottom: 24px;
+
     & > h1 {
-     font-size: 36px;
+     font-size: 40px;
     }
 }
 
-router-outlet {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    padding-top: 40px;
+nav {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    overflow: hidden;
+
+    a {
+        display: inline-block;
+
+        color: white;
+
+        font-size: 22px;
+        text-decoration: none;
+        text-align: center;
+
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 10px;
+    }
+
+    a.current {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    @media screen and (min-width: 768px) {
+        margin: 0 auto;
+
+        width: 70%;
+
+        border: 0;
+        border-radius: 36px;
+    }
+}
+
+main {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+
+    color: white;
+    font-weight: 700;
+
+    padding: 15px;
+
+    a {
+        color: blue;
+    }
 }

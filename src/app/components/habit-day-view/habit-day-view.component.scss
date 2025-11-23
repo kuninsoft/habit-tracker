@@ -1,6 +1,8 @@
 :host {
     position: relative;
 
+    color: #3b4f63;
+
     display: flex;
     flex-direction: row;
     justify-content: center;    
@@ -12,9 +14,10 @@
     overflow-x: auto;
     overflow-y: hidden;
 
-    background-color: #dfdfdf;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(14px);
 
-    border: 1px solid #dadada;
+    border: 1px solid rgba(255, 255, 255, 0.35);
     border-radius: 30px;
     
     padding: 10px;
@@ -31,7 +34,8 @@
     width: 140px;
     height: 140px;
 
-    background-color: #f7f7f7;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(6px);
 
     border-radius: 30px;
 
@@ -42,23 +46,24 @@
     user-select: none;
 
     &.selected {
-        background-color: #eeeeee;
-    }
-
-    &:not(.selected):hover {
-        cursor: pointer;
-        background-color: #f0f0f0;
+        background: rgba(255, 255, 255, 0.85);
     }
 
     @media screen and (min-width: 768px) {
         width: 180px;
         height: 180px;
+
+        &:not(.selected):hover {
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.9);
+        }
     }
 
     & > p {
         font-size: 48px;
-
         font-weight: 250;
+
+        color: #2c3e50;
 
         @media screen and (min-width: 768px) {
             font-size: 56px;

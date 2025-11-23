@@ -6,4 +6,7 @@
 
 <app-habit-counter [date]="date()" [disabled]="!isDateToday()" />
 
-<app-habit-day-view (select)="handleSelect($event)" />
+<section>
+    <h3>Get a glimpse of your other days</h3>
+    <app-habit-day-view (select)="handleSelect($event)" />
+</section>

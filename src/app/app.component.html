@@ -3,8 +3,15 @@
 </header>
 
 <nav>
-    <a routerLink="">Today</a>
-    <a routerLink="statistics">Statistics</a>
+    <a routerLink="" routerLinkActive="current" [routerLinkActiveOptions]="{exact: true}">Today</a>
+    <a routerLink="statistics" routerLinkActive="current">Statistics</a>
 </nav>
 
-<router-outlet />
+<main>
+    <router-outlet />
+</main>
+
+<footer>
+    2025 &copy; Sviatoslav Kunynets.
+    <a href="https://github.com/kuninsoft">GitHub</a>
+</footer>

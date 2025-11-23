@@ -10,5 +10,13 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
     font-family: 'Nunito', Helvetica, sans-serif;
-    background-color: #f7f7f7;
+    background: linear-gradient(to bottom, #49a6ff 0%, #9ed7ff 60%,  #49a6ff 100%);
+
+    height: 100vh;
+
+    color: white;
+}
+
+app-root {
+    height: 100vh;
 }

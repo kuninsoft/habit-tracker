@@ -1,1 +1,7 @@
-<p>statistics-page works!</p>
+<section>
+    <p>Days recorded: <span class="statistic-entry">{{ statistics().totalDays }}</span></p>
+    <p>Days with positive score: <span class="statistic-entry">{{ statistics().daysPositive }}</span></p>
+    <p>Days with negative score: <span class="statistic-entry">{{ statistics().daysNegative }}</span></p>
+    <p>Positive to negative days ratio: <span class="statistic-entry">{{ statistics().positiveToNegativeRatio }}</span></p>
+    <p>Total net score: <span class="statistic-entry">{{ statistics().totalNetScore }}</span></p>
+</section>

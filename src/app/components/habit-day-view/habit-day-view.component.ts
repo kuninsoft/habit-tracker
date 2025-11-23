@@ -25,8 +25,10 @@ export class HabitDayViewComponent {
         this.selected.set(null);
         return;
       }
+
+      const currDate = new Date().toISOString().split("T")[0];
       
-      if (!this.selected()) {
+      if (!this.selected() && entries.some((entry) => entry.date === currDate)) {
         const last = entries[entries.length - 1];
         this.selectEntry(last);
       }
