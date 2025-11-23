@@ -21,3 +21,7 @@ Many people try to quit bad habits. Naturally, you may slip up and do the bad ha
 This small app is aimed to remind you, that whenever you unexpectedly do a bad habit, you still have a lot of good habits up your sleeve. It could be routine things: doing the dishes, cleaning the room, making your bed; or it could be something more specific, like working out, doing your favorite hobbies, getting up at specific time, etc.
 
 Your day can be thought of as a number of points. When you do a good habit, you gain a point, and when you do a bad habit, you lose a point. 
+
+## Try it!
+
+It is available by the URL: https://brave-water-0a407561e.3.azurestaticapps.net/
