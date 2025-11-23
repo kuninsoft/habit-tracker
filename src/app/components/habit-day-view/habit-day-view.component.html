@@ -4,4 +4,8 @@
             <header><h3>{{ habitEntry.date | date }}</h3></header>
             <p>{{ habitEntry.habitCount }}</p>
     </div>
+} @empty {
+    <div class="empty">
+        <p>Create your first habit entry with + or - buttons!</p>
+    </div>
 }
