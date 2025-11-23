@@ -1,0 +1,48 @@
+:host {
+    display: block;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+button {
+    border: none;
+    border-radius: 100%;
+
+    height: 50px;
+    width: 50px;
+
+    font-size: 30px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+#dec-habit-btn {
+    height: 40px;
+    width: 40px;
+
+    color: white;
+    background-color: #ea0000;
+}
+
+#inc-habit-btn {
+    color: white;
+    background-color: #2bba2b;
+    
+    border: 1px solid #0ea50e;
+}
+
+#habit-value {
+    display: inline-block;
+
+    font-size: 72px;
+    font-weight: 200;
+
+    width: 120px;
+    text-align: center;
+}

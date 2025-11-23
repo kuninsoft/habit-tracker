@@ -1,0 +1,20 @@
+header {
+    background-color: orange;
+    color: white;
+    text-align: center;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+header h1 {
+    font-size: 36px;
+}
+
+router-outlet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    padding-top: 40px;
+}
