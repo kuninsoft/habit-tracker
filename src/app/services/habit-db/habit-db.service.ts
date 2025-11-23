@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { HabitEntry } from './habit';
 
 @Injectable({
@@ -9,6 +9,8 @@ export class HabitDbService {
 
   private db!: IDBDatabase;
   private dbReady: Promise<void>;
+
+  allHabits = signal<HabitEntry[]>([]);
 
   constructor() {
     this.dbReady = new Promise((resolve, reject) => {
@@ -34,13 +36,19 @@ export class HabitDbService {
         this.db = request.result;
         resolve();
       };
-    })
+    });
+
+    this.dbReady.then(() => this.init());
+  }
+
+  async init() {
+    this.allHabits.set(await this.getAllHabits());
   }
 
   async getAllHabits() {
-    const result = this.transaction<HabitEntry[]>((store) => store.getAll() as IDBRequest<HabitEntry[]>);
+    const result = await this.transaction<HabitEntry[]>((store) => store.getAll() as IDBRequest<HabitEntry[]>);
 
-    return result ?? [];
+    return result || [];
   }
 
   async getHabitData(date: Date) {
@@ -52,14 +60,16 @@ export class HabitDbService {
   async updateHabitData(updatedHabit: HabitEntry) {
     const existing = await this.getHabitData(new Date(updatedHabit.date));
 
-    return this.transaction((store) => {
+    await this.transaction((store) => {
       const habitToSave = existing ? {...existing, ...updatedHabit} : updatedHabit;
 
       return store.put(habitToSave);
     })
+
+    await this.reload();
   }
 
-  async transaction<T>(fn: (store: IDBObjectStore) => IDBRequest<T>): Promise<T | undefined> {
+  private async transaction<T>(fn: (store: IDBObjectStore) => IDBRequest<T>): Promise<T | undefined> {
     await this.dbReady;
     return new Promise((resolve, reject) => {
       const tx = this.db.transaction("habits", "readwrite");
@@ -68,5 +78,10 @@ export class HabitDbService {
       req.onsuccess = () => resolve(req.result ?? undefined);
       req.onerror = () => reject(req.error);
     });
+  }
+
+  private async reload() {
+    const habits = await this.getAllHabits();
+    this.allHabits.set(habits);
   }
 }

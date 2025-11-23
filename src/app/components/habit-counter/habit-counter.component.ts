@@ -1,4 +1,4 @@
-import { Component, inject, input, output, signal } from '@angular/core';
+import { Component, computed, inject, input, output, signal } from '@angular/core';
 import { HabitDbService } from '../../services/habit-db/habit-db.service';
 
 @Component({
@@ -10,12 +10,17 @@ import { HabitDbService } from '../../services/habit-db/habit-db.service';
 export class HabitCounterComponent {
   habitDb = inject(HabitDbService);
 
-  readonly date = input.required<Date>();
+  date = input.required<Date>();
+  disabled = input(false);
   
   currentCount = signal(0);
 
-  async ngOnInit() {
-    this.currentCount.set(await this.getHabitData());
+  ngOnChanges() {
+    this.initCount();
+  }
+
+  ngOnInit() {
+    this.initCount();
   }
 
   protected incHabit() {
@@ -37,6 +42,10 @@ export class HabitCounterComponent {
       habitCount: newCount
     });
 
+    this.initCount();
+  }
+
+  private async initCount() {
     this.currentCount.set(await this.getHabitData());
   }
 }

@@ -19,6 +19,10 @@ button {
 
     &:hover {
         cursor: pointer;
+
+        &:disabled {
+            cursor: not-allowed;
+        }
     }
 }
 
@@ -28,13 +32,37 @@ button {
 
     color: white;
     background-color: #ea0000;
+
+    &:hover {
+        background-color: #da0000;
+    }
+
+    &:active {
+        background-color: #cc0000;
+    }
+
+    &:disabled {
+        color: lightgray;
+        background-color: #aa0000;
+    }
 }
 
 #inc-habit-btn {
     color: white;
     background-color: #2bba2b;
-    
-    border: 1px solid #0ea50e;
+
+    &:hover {
+        background-color: #23a923;
+    }
+
+    &:active {
+        background-color: #1a971a;
+    }
+
+    &:disabled {
+        color: lightgray;
+        background-color: green;
+    }
 }
 
 #habit-value {

@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <button id="dec-habit-btn" (click)="decHabit()">-</button>
+    <button id="dec-habit-btn" (click)="decHabit()" [disabled]="disabled()">-</button>
     <p id="habit-value">{{ currentCount() }} </p>
-    <button id="inc-habit-btn" (click)="incHabit()">+</button>
+    <button id="inc-habit-btn" (click)="incHabit()" [disabled]="disabled()">+</button>
 </div>

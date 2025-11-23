@@ -1,3 +1,9 @@
-<h2>Today is {{ date() | date }}. You can do it!</h2>
+@if (isDateToday()) {
+    <h2>Today is {{ date() | date }}. You can do it!</h2>
+} @else {
+    <h2>Your score for {{ date() | date }}</h2>
+}
 
-<app-habit-counter [date]="date()" />
+<app-habit-counter [date]="date()" [disabled]="!isDateToday()" />
+
+<app-habit-day-view (select)="handleSelect($event)" />

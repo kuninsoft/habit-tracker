@@ -1,0 +1,67 @@
+:host {
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;    
+    gap: 10px;
+
+    width: 97%;
+    height: 160px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    background-color: #dfdfdf;
+
+    border: 1px solid #dadada;
+    border-radius: 30px;
+    
+    padding: 10px;
+
+    @media screen and (min-width: 768px) {
+        width: 70%;
+        height: 200px;
+    }
+}
+
+.habit-entry {
+    flex-shrink: 0;
+
+    width: 140px;
+    height: 140px;
+
+    background-color: #f7f7f7;
+
+    border-radius: 30px;
+
+    display: grid;
+    place-content: center;
+    text-align: center;
+
+    user-select: none;
+
+    &.selected {
+        background-color: #eeeeee;
+    }
+
+    &:not(.selected):hover {
+        cursor: pointer;
+        background-color: #f0f0f0;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 180px;
+        height: 180px;
+    }
+
+    & > p {
+        font-size: 48px;
+
+        font-weight: 250;
+
+        @media screen and (min-width: 768px) {
+            font-size: 56px;
+        }
+    }
+}

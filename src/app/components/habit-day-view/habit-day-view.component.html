@@ -1,0 +1,7 @@
+@for (habitEntry of habitEntries(); track habitEntry.id) {
+    <div [class]="{'habit-entry': true, 'selected': habitEntry.id === selected()?.id}"
+        (click)="selectEntry(habitEntry)">
+            <header><h3>{{ habitEntry.date | date }}</h3></header>
+            <p>{{ habitEntry.habitCount }}</p>
+    </div>
+}
